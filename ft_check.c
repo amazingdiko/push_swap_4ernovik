@@ -6,7 +6,7 @@
 /*   By: wmozella <wmozella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 21:51:09 by wmozella          #+#    #+#             */
-/*   Updated: 2022/02/22 21:52:19 by wmozella         ###   ########.fr       */
+/*   Updated: 2022/03/07 22:09:09 by wmozella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,60 @@ void	ft_check_doublicate(int argc, char **argv)
 			b ++;
 		}
 		k ++;
+	}
+}
+
+void	ft_check_sort(t_list **list_a, int argc)
+{
+	t_list	*list;
+	int		i;
+
+	i = 0;
+	list = *list_a;
+	while (list->next != NULL)
+	{
+		if (list->data > list->next->data)
+		{
+			i = 1;
+			break ;
+		}
+		list = list->next;
+	}
+	if (i == 0)
+	{
+		write (1, "Already sorted!\n", 16);
+		exit (1);
+	}
+}
+
+void	ft_index(int *arr, int argc, t_list **list_a)
+{
+	t_list	*tmp;
+	int		i;
+
+	i = 0;
+	tmp = *list_a;
+	while (tmp)
+	{
+		while (i < argc - 1)
+		{
+			if (tmp->data == arr[i])
+				tmp->index = i;
+			i ++;
+		}
+		tmp = tmp->next;
+		i = 0;
+	}
+}
+
+void	ft_free(t_list **list)
+{
+	t_list	*dell;
+
+	while (*list)
+	{
+		dell = *list;
+		*list = (*list)->next;
+		free(dell);
 	}
 }
