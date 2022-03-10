@@ -6,7 +6,7 @@
 /*   By: wmozella <wmozella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 19:19:32 by wmozella          #+#    #+#             */
-/*   Updated: 2022/03/07 22:11:38 by wmozella         ###   ########.fr       */
+/*   Updated: 2022/03/10 22:31:18 by wmozella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_put_back(t_list **list, long int i);
 t_list	*ft_create_list(long int i);
 void	sort_arr(int *arr, int argc);
 void	ft_check_doublicate(int argc, char **argv);
-void	ft_check_sort(t_list **list_a, int argc);
+void	ft_check_sort(t_list **list_a);
 void	ft_index(int *arr, int argc, t_list **list_a);
 void	ft_free(t_list **list);
 void	ft_rotate(t_list **list);
@@ -47,5 +47,9 @@ void	ft_sort_for_three(t_list **list_a, t_list **list_b);
 int		ft_count(t_list **list);
 void	ft_sort_for_five_end(t_list **list_a, t_list **list_b);
 void	ft_sort_for_five(t_list **list_a, t_list **list_b, int argc);
+int		ft_max(t_list **list_b, int i);
+void	ft_sort_b(t_list **list_a, t_list **list_b, int argc);
+void	ft_sort_for_100(t_list **list_a, t_list **list_b, int argc);
+void	ft_sort_for_500(t_list **list_a, t_list **list_b, int argc);
 
 #endif

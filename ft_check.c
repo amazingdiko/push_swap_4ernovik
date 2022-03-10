@@ -6,7 +6,7 @@
 /*   By: wmozella <wmozella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 21:51:09 by wmozella          #+#    #+#             */
-/*   Updated: 2022/03/07 22:09:09 by wmozella         ###   ########.fr       */
+/*   Updated: 2022/03/10 22:31:02 by wmozella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,24 @@ void	ft_check_doublicate(int argc, char **argv)
 		while (b < argc)
 		{
 			if (ft_atoi(argv[k]) == ft_atoi(argv[b]))
-				write(1, "Error\n", 5);
+			{
+				write(1, "Error\n", 6);
+				exit (1);
+			}
 			b ++;
 		}
 		k ++;
 	}
 }
 
-void	ft_check_sort(t_list **list_a, int argc)
+void	ft_check_sort(t_list **list_a)
 {
 	t_list	*list;
 	int		i;
 
 	i = 0;
 	list = *list_a;
-	while (list->next != NULL)
+	while (list->next)
 	{
 		if (list->data > list->next->data)
 		{

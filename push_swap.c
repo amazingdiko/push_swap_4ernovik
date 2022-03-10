@@ -6,7 +6,7 @@
 /*   By: wmozella <wmozella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 19:19:29 by wmozella          #+#    #+#             */
-/*   Updated: 2022/02/22 22:09:09 by wmozella         ###   ########.fr       */
+/*   Updated: 2022/03/10 22:31:25 by wmozella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	ft_create_list_a(int argc, char **argv, int *arr, t_list **list_a)
 	while (k < argc)
 	{
 		arr[i] = ft_atoi(argv[k]);
-		ft_put_back(list_a, i);
+		ft_put_back(list_a, arr[i]);
 		i ++;
 		k ++;
 	}
@@ -97,6 +97,9 @@ int	main(int argc, char **argv)
 	ft_create_list_a(argc, argv, arr, &list_a);
 	sort_arr(arr, argc);
 	ft_check_doublicate(argc, argv);
-	while (argc < 1)
-		exit(1);
+	ft_check_sort(&list_a);
+	ft_index(arr, argc, &list_a);
+	ft_sort(&list_a, &list_b, argc);
+	free (arr);
+	ft_free(&list_a);
 }
